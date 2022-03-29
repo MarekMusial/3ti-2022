@@ -35,10 +35,16 @@ def main():
                     zmienna1=zmienna1-40
                 elif event.key == pygame.K_RIGHT:
                     zmienna1=zmienna1+40
+        #sprawdzenie czy wąż sam siebie nie zjadł 
+                for wspol in pozycjaWaz[::]:
+                    if zmienna1==wspol[0] and zmienna2==wspol[1]:
+                        pozycjaWaz=[]
+                        dlugoszWeza=1
         #dodawanie nowej pozycji węża
-        pozycjaWaz.append((zmienna1,zmienna2))
-        if dlugoszWeza<len(pozycjaWaz):
-            del pozycjaWaz[0]
+                pozycjaWaz.append((zmienna1,zmienna2))
+                if dlugoszWeza<len(pozycjaWaz):
+                 del pozycjaWaz[0]
+        
         #waż zjada jabłko
         if zmienna1==xApple-20 and zmienna2==yApple-20:
             xApple=random.randint(0,9)*40+20
